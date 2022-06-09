@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{7B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{CD8622D2-FA90-48E8-AF18-0BC91464F1A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{DFD4931D-86C8-4BD9-8FB4-A0D56F4FD9E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{DFD4931D-86C8-4BD9-8FB4-A0D56F4FD9E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +25,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CD8622D2-FA90-48E8-AF18-0BC91464F1A3} = {7B263932-BE77-4CA5-919B-C7D432BA3B01}
+		{DFD4931D-86C8-4BD9-8FB4-A0D56F4FD9E6} = {CD8622D2-FA90-48E8-AF18-0BC91464F1A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DBE6CD08-A7BE-4305-B6F4-C11D2F13E4AA}
