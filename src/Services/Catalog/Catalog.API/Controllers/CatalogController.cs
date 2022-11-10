@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
     public class CatalogController : ControllerBase
     {
@@ -29,6 +30,8 @@ namespace Catalog.API.Controllers
             var products = await _repository.GetProducts();
             return Ok(products);
         }
+
+
 
         [HttpGet("{id:length(24)}", Name = "GetProduct")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
