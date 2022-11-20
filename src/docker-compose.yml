@@ -9,11 +9,16 @@ services:
   discountdb:
     image: postgres
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
   pgadmin:
     image: dpage/pgadmin4
 
   portainer:
     image: portainer/portainer-ce
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
   
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
@@ -39,9 +44,16 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+
 volumes:
   mongo_data:
   portainer_data:
   postgres_data:
   pgadmin_data:
+
 
