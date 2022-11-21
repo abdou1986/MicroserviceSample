@@ -49,8 +49,8 @@ namespace Basket.API
             //Add Masstransit configuartion
             services.AddMassTransit(config =>{
                 config.UsingRabbitMq((ctx, cfg) =>{
-                    //Add the config for the url with AMQP protocole (username:password@url:port) with url:port is the url of rabbitMQ 
-                    cfg.Host(Configuration.GetValue<string>("EventBusSetting:HostAddress"));
+                //Add the config for the url with AMQP protocole (username:password@url:port) with url:port is the url of rabbitMQ 
+                cfg.Host(Configuration["EventBusSetting:HostAddress"]);
                 });
             });
 

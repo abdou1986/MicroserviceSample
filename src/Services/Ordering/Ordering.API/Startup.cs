@@ -32,13 +32,13 @@ namespace Ordering.API
         {
             services.AddApplicationServices();
             services.AddInfrastructureServices(Configuration);
-            services.AddControllers();
+         
             //Add Masstransit configuartion
             services.AddMassTransit(config => {
                 config.AddConsumer<BasketCheckoutConsumer>();
                 config.UsingRabbitMq((ctx, cfg) => {
                     //Add the config for the url with AMQP protocole (username:password@url:port) with url:port is the url of rabbitMQ 
-                    cfg.Host(Configuration.GetValue<string>("EventBusSetting:HostAddress"));
+                    cfg.Host(Configuration["EventBusSetting:HostAddress"]);
                     //Add Queue consumer configuration
                     cfg.ReceiveEndpoint(EventBusConstants.BASCKET_CHECKOUT_QUEUE, c =>
                     {
@@ -48,11 +48,13 @@ namespace Ordering.API
             });
 
             services.AddMassTransitHostedService();
+            services.AddScoped<BasketCheckoutConsumer>();
             //Config AutoMapper
             services.AddAutoMapper(typeof(Startup));
 
 
 
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering.API", Version = "v1" });
